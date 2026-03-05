@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synergy PM Solutions | Procurement partner for property managers</title>
+    <style>
+        /* ===== RESET & BASE (black & white corporate) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #222;
+            background: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        a {
+            color: #222;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #222;
+        }
+        .section-marker {
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            padding: 1.5rem 0;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            border-bottom: none;
+            color: #000;
+        }
+        .primary-nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .primary-nav a {
+            font-weight: 500;
+            color: #333;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.25rem;
+        }
+        .primary-nav a:hover,
+        .primary-nav a.active {
+            border-bottom-color: #222;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #222;
+            margin: 5px 0;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 5rem 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .hero-headline {
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        .hero-subhead {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 1px solid #222;
+            background: transparent;
+            color: #222;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #222;
+            color: #fff;
+        }
+
+        /* ===== WHO WE ARE ===== */
+        .who-section {
+            padding: 4rem 0;
+        }
+        .who-paragraph {
+            font-size: 1.125rem;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+        .who-meta {
+            color: #666;
+            font-size: 1rem;
+            border-left: 3px solid #ddd;
+            padding-left: 1rem;
+        }
+
+        /* ===== WHAT WE DO (services) ===== */
+        .services-section {
+            padding: 4rem 0;
+            background: #fff;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-item {
+            background: #fafafa;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+        .service-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-item p {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ===== PROOF: CLIENTS & BUILDINGS ===== */
+        .clients-section {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        .client-logo {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 1rem;
+            text-align: center;
+        }
+        .client-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: grayscale(100%); /* keep black/white aesthetic */
+            transition: filter 0.2s;
+        }
+        .client-logo img:hover {
+            filter: grayscale(0%);
+        }
+
+        .buildings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .building-card {
+            background: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+        .building-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        .building-card h3 {
+            margin: 1rem 1rem 0.25rem 1rem;
+        }
+        .building-address {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0 1rem 0.25rem 1rem;
+        }
+        .building-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin: 0 1rem 1rem 1rem;
+        }
+
+        /* ===== VISION ===== */
+        .vision-section {
+            padding: 3rem 0;
+            background: #fff;
+            text-align: center;
+        }
+        .vision-statement {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+        .contact-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        .contact-card h2 {
+            border-bottom: none;
+            margin-bottom: 1rem;
+        }
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+            text-align: left;
+        }
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            min-width: 200px;
+        }
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        .contact-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #777;
+        }
+        .contact-item p {
+            margin: 0;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #222;
+            color: #fff;
+            border: 1px solid #222;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .btn-primary:hover {
+            background: #fff;
+            color: #222;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: #222;
+            color: #ccc;
+            padding: 3rem 0 1rem;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-brand p:first-child {
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        .footer-brand p {
+            color: #aaa;
+        }
+        .footer-contact h3,
+        .footer-links h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.5rem;
+        }
+        .footer-contact a,
+        .footer-links a {
+            color: #ccc;
+        }
+        .footer-contact a:hover,
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #888;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .hero-headline { font-size: 2.2rem; }
+
+            .nav-toggle {
+                display: block;
+            }
+            .primary-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            .primary-nav.active {
+                max-height: 300px;
+            }
+            .primary-nav ul {
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0;
+            }
+            .primary-nav li {
+                text-align: center;
+            }
+            .primary-nav a {
+                display: block;
+                padding: 0.75rem;
+            }
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+    <!-- Google Fonts & Icons (optional, but used in existing site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">SYNERGY PM SOLUTIONS</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="primary-nav">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#who">Who we are</a></li>
+                    <li><a href="#what">What we do</a></li>
+                    <li><a href="#proof">Buildings Managed</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1️⃣ HERO (authority first, clean) -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1 class="hero-headline">Synergy PM Solutions</h1>
+                <p class="hero-subhead">Reliable procurement partner for property maintenance</p>
+                <p class="hero-description">
+                    Level-1 BBBEE · 100% women-owned · Delivering plumbing, hardware & electrical supplies to property managers across South Africa.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-outline">Arrange a consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2️⃣ WHO WE ARE (trust, neutral, corporate) -->
+        <section id="who" class="who-section">
+            <div class="container">
+                <span class="section-marker">01 — Who we are</span>
+                <h2>Who We Are</h2>
+                <p class="who-paragraph">
+                    Synergy PM Solutions is a Level‑1 BBBEE, 100% women‑owned enterprise dedicated to streamlining maintenance supply chains for property management companies. Founded in 2025, we combine operational systems with deep industry knowledge to deliver consistent, hassle‑free procurement.
+                </p>
+                <p class="who-meta">
+                    Focus: reliability · professional processes · long‑term partnerships
+                </p>
+            </div>
+        </section>
+
+        <!-- 3️⃣ WHAT WE DO (clarity, bullet‑point style) -->
+        <section id="what" class="services-section">
+            <div class="container">
+                <span class="section-marker">02 — What we do</span>
+                <h2>What We Do</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>Plumbing Supplies</h3>
+                        <p>Pipes, fittings, valves, water heaters – all major brands, delivered on schedule.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Hardware & Tools</h3>
+                        <p>Fasteners, hand tools, ironmongery, and general hardware for ongoing maintenance.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Electrical Supplies</h3>
+                        <p>Cables, circuit breakers, lighting, and safety equipment – certified and traceable.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>General Maintenance Materials</h3>
+                        <p>Paint, adhesives, sealants, and everyday upkeep items – consolidated from one source.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4️⃣ PROOF (buildings managed / clients with images) -->
+        <section id="proof" class="clients-section">
+            <div class="container">
+                <span class="section-marker">03 — Proof</span>
+                <h2>Buildings we supply</h2>
+                <p class="section-lead">We deliver materials to these and other properties – proof of our operational reach.</p>
+
+                <!-- building cards with actual images from original site (assets/logos/park*.jpeg) -->
+                <div class="buildings-grid">
+                    <div class="building-card">
+                        <img class="building-image" src="assets/logos/park1.jpeg" alt="Parkview Residential Estate" loading="lazy">
+                        <h3>Parkview Residential Estate</h3>
+                        <p class="building-address">Johannesburg</p>
+                        <p class="building-meta">Plumbing & hardware </p>
+                    </div>
+                    <div class="building-card">
+                        <img class="building-image" src="assets/logos/park2.jpeg" alt="Hesto Harnesses Facility" loading="lazy">
+                        <h3>Hesto Harnesses Facility</h3>
+                        <p class="building-address">Midrand</p>
+                        <p class="building-meta">Electrical & general maintenance</p>
+                    </div>
+                    <div class="building-card">
+                        <img class="building-image" src="assets/logos/park3.jpeg" alt="Nomad Office Park" loading="lazy">
+                        <h3>Nomad Office Park</h3>
+                        <p class="building-address">Sandton</p>
+                        <p class="building-meta">Full material supply</p>
+                    </div>
+                    <div class="building-card">
+                        <!-- If there's a fourth building image, we could use it; using park1 as fallback -->
+                        <img class="building-image" src="assets/logos/park1.jpeg" alt="Ithemba Properties" loading="lazy">
+                        <h3>Ithemba Properties</h3>
+                        <p class="building-address">Soweto</p>
+                        <p class="building-meta">Ongoing procurement partner</p>
+                    </div>
+                </div>
+
+                <!-- client logos as images (using actual logo files from original site) -->
+                <p style="margin-top: 2rem; color: #666; text-align: center;">Trusted by:</p>
+                <div class="clients-grid">
+                    <div class="client-logo">
+                        <img src="assets/logos/client1-logo.jpeg" alt="Ithemba Properties" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/logos/client2-logo.jpeg" alt="Hesto Harnesses" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/logos/client3-logo.jpeg" alt="Nomad Properties" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5️⃣ VISION / COMMITMENT (stability close) -->
+        <section class="vision-section">
+            <div class="container">
+                <span class="section-marker">04 — Our focus</span>
+                <h2>Commitment</h2>
+                <p class="vision-statement">
+                    Our focus is long‑term partnerships with property managers, delivering reliable supply chains, operational efficiency, and professional service delivery.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT (NAP) -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Contact</h2>
+                    <p>For quotes, schedules, or any inquiry.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <h3>Call</h3>
+                                <p><a href="tel:0714238388">071 423 8388</a><br><a href="tel:0728966786">072 896 6786</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:adsynergypmsolutions@gmail.com">adsynergypmsolutions@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Johannesburg, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="mailto:adsynergypmsolutions@gmail.com" class="btn-primary">Send inquiry</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <p><strong>SYNERGY PM SOLUTIONS</strong></p>
+                <p>Level‑1 BBBEE · 100% women‑owned</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><a href="tel:0714238388">071 423 8388</a><br><a href="tel:0728966786">072 896 6786</a><br><a href="mailto:adsynergypmsolutions@gmail.com">adsynergypmsolutions@gmail.com</a></p>
+            </div>
+            <div class="footer-links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#who">Who we are</a></li>
+                    <li><a href="#what">What we do</a></li>
+                    <li><a href="#proof">Buildings Managed</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="currentYear"></span> Synergy PM Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const primaryNav = document.querySelector('.primary-nav');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                primaryNav.classList.toggle('active');
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
